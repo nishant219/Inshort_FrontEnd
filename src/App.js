@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Box, styled } from "@mui/material";
+
+import Header from "./components/Header";
+import InfoHeader from "./components/InfoHeader";
+import Articles from "./components/Articles";
+
+//this section provide styles to InfoHeader
+// const Container =styled(Box)({
+//   width: '59%',
+//   margin: '110px auto 0 auto',
+// })
+
+const Container = styled(Box)(({ theme }) => ({
+  width: '59%',
+  margin: '110px auto 0 auto',
+  [theme.breakpoints.down('md')]: {
+    width: '75%'
+  },
+  [theme.breakpoints.down('sm')]: {
+    width: '85%'
+  }
+}));
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     <Box>
+      <Header />
+      <Container>
+        <InfoHeader />
+        <Articles />
+      </Container>
+    </Box>
+    </>
   );
 }
 
